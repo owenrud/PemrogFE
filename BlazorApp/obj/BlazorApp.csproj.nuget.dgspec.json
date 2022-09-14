@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Pemrog Front End\\BlazorApp\\BlazorApp.csproj": {}
+    "D:\\BlazorApp\\BlazorApp.csproj": {}
   },
   "projects": {
-    "D:\\Pemrog Front End\\BlazorApp\\BlazorApp.csproj": {
+    "D:\\BlazorApp\\BlazorApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Pemrog Front End\\BlazorApp\\BlazorApp.csproj",
+        "projectUniqueName": "D:\\BlazorApp\\BlazorApp.csproj",
         "projectName": "BlazorApp",
-        "projectPath": "D:\\Pemrog Front End\\BlazorApp\\BlazorApp.csproj",
+        "projectPath": "D:\\BlazorApp\\BlazorApp.csproj",
         "packagesPath": "C:\\Users\\ideapad\\.nuget\\packages\\",
-        "outputPath": "D:\\Pemrog Front End\\BlazorApp\\obj\\",
+        "outputPath": "D:\\BlazorApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ideapad\\AppData\\Roaming\\NuGet\\NuGet.Config"

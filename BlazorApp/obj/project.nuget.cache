@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Q0RQuBtCf7xqE6e5CAVprQiF+I8tWwDT5Uck6Bn/5aQO0spI4+mB/Cao0hXHs/KsOeOZKWBiKAh392mUqj2mMg==",
+  "dgSpecHash": "/Zapv9bRswmC6UCvTc44OGgyoqdHm/ZnRYpgMyQb+YXiTQAeisyWRklKwKeud8Ci5/fz7Qk8kMB7290wBEUsHQ==",
   "success": true,
-  "projectFilePath": "D:\\Pemrog Front End\\BlazorApp\\BlazorApp.csproj",
+  "projectFilePath": "D:\\BlazorApp\\BlazorApp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
