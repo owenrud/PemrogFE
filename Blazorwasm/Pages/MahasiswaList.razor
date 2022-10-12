@@ -15,6 +15,10 @@
 }
 else
 {
+    <p style="margin:8px 0">  
+    <input Class="filled-text-box" @bind="FilterText" Placeholder="Search Text" />
+    <button @onclick="Search">Cari</button>
+</p> 
     <table class="table">
         <thead>
             <tr>
@@ -22,6 +26,8 @@ else
                 <th>NAMA</th>
                 <th>NIM</th>
                 <th>ALAMAT</th>
+                <th>Email</th>
+                <th>Foto</th>
             </tr>
         </thead>
         <tbody>
@@ -32,28 +38,26 @@ else
                 <td>@mh.nama</td>
                 <td>@mh.nim</td>
                 <td>@mh.alamat</td>
+                <td>@mh.email</td>
+                <td>@mh.foto</td>
                 </tr>
             }
         </tbody>
     </table>
+    <button class="btn btn-dark"><a href="/addmhs">Add</a></button>
+
 }
 
 @code {
     private Mahasiswa[]? mhs;
+    public string? FilterText;
 
     protected override async Task OnInitializedAsync()
     {
-        mhs = await Http.GetFromJsonAsync<Mahasiswa[]>("https://kpsi.fti.ukdw.ac.id/api/progmob/mhs/72170177");
+        mhs = await Http.GetFromJsonAsync<Mahasiswa[]>("https://kpsi.fti.ukdw.ac.id/api/progmob/mhs/72200371");
     }
-
-  public class Mahasiswa
-{
-    public int id { get; set; }
-    public string? nama { get; set; }
-    public string? nim { get; set; }
-    public string? alamat { get; set;}
-    public string? email {get; set;}
-    public string? foto {get; set;}
-
-}
+    public async Task Search(){
+        var Text = FilterText;
+        mhs = await Http.GetFromJsonAsync<Mahasiswa[]>("https://kpsi.fti.ukdw.ac.id/api/progmob/mhs/72200371/72200371");
+    }
 }
