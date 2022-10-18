@@ -1,22 +1,42 @@
-@page "/updatemhs/"
+@page "/updatemhs"
 @using System.Net.Http
 @using System.Net.Http.Json
 @inject HttpClient Http
 
-<input @bind="editMhs.nama" />
-<input @bind="editMhs.nim"  />
-<input @bind="editMhs.alamat" />
-<input @bind="editMhs.email" />
-<input @bind="editMhs.foto" />
-<input @bind="editMhs.nim_progmob" />
+<input @bind="@ednama" />
+<input @bind="@ednim"  />
+<input @bind="@edalamat" />
+<input @bind="@edemail" />
+<input @bind="@edfoto" />
+<input @bind="@ednim_progmob" />
 <button @onclick="UpdateMhs">Update</button>
 
 @code {
-    public int id ;
-    public Mahasiswa editMhs = new Mahasiswa();
+    [Parameter]
+[SupplyParameterFromQuery(Name = "id")]
+    public int id {get;set;}
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "nama")]
+    public string ednama {get;set;}
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "nim")]
+    public string ednim {get;set;}
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "alamat")]
+    public string edalamat {get;set;}
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "email")]
+    public string edemail {get;set;}
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "foto")]
+    public string edfoto {get;set;}
+
+    public string? ednim_progmob;
+ 
 
     public async Task UpdateMhs()
     {
-        await Http.PutAsJsonAsync("https://kpsi.fti.ukdw.ac.id/api/progmob/mhs/update", editMhs);
+        var editItem = new DBUpdateMahasiswa {  Unama = ednama, Unim = ednim,Unim_cari=ednim, Ualamat = edalamat, Uemail = edemail, Ufoto = edfoto,Unim_progmob = ednim_progmob };
+        await Http.PutAsJsonAsync("https://kpsi.fti.ukdw.ac.id/api/progmob/mhs/update", editItem);
     }
 }

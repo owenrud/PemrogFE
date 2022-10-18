@@ -42,8 +42,8 @@ else
                 <td>@mh.alamat</td>
                 <td>@mh.email</td>
                 <td>@mh.foto</td>
-                <td><button class="btn btn-warning"><a href="/updatemhs/">Update</a></button></td>
-                <td><button class="btn btn-danger"><a href="/deletemhs/@mh.id">Delete</a></button></td>
+                <td><button class="btn btn-warning"><a href="/updatemhs?id=@mh.id&nama=@mh.nama&nim=@mh.nim&alamat=@mh.alamat&email=@mh.email&foto=@mh.foto">Update</a></button></td>
+                <td><button class="btn btn-danger"><a href="/deletemhs?nim=@mh.nim">Delete</a></button></td>
                 </tr>
             }
         </tbody>
@@ -56,34 +56,10 @@ else
 @code {
     private Mahasiswa[]? mhs;
     public string? FilterText;
-    [Parameter] 
-    public int id { get; set; }
-[Parameter]
-public string nama { get; set; }
-[Parameter]
-public string email { get; set; }
-
-
 
     protected override async Task OnInitializedAsync()
     {
-             var uri = navigationManager.ToAbsoluteUri(navigationManager.Uri); //you can use IURIHelper for older versions
-
-    if(QueryHelpers.ParseQuery(uri.Query).TryGetValue("id", out var id))
-     {
-         var id_par = id.First();
-     }
-
-     if(QueryHelpers.ParseQuery(uri.Query).TryGetValue("nama", out var nama))
-     {
-         var nama_par = nama.First();
-     }
-
-     if(QueryHelpers.ParseQuery(uri.Query).TryGetValue("email", out var email))
-     {
-         var email_par = email.First();
-     }
-
+            
         mhs = await Http.GetFromJsonAsync<Mahasiswa[]>("https://kpsi.fti.ukdw.ac.id/api/progmob/mhs/72200371");
 
     }
