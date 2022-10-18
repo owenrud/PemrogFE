@@ -1,0 +1,22 @@
+@page "/updatemhs/"
+@using System.Net.Http
+@using System.Net.Http.Json
+@inject HttpClient Http
+
+<input @bind="editMhs.nama" />
+<input @bind="editMhs.nim"  />
+<input @bind="editMhs.alamat" />
+<input @bind="editMhs.email" />
+<input @bind="editMhs.foto" />
+<input @bind="editMhs.nim_progmob" />
+<button @onclick="UpdateMhs">Update</button>
+
+@code {
+    public int id ;
+    public Mahasiswa editMhs = new Mahasiswa();
+
+    public async Task UpdateMhs()
+    {
+        await Http.PutAsJsonAsync("https://kpsi.fti.ukdw.ac.id/api/progmob/mhs/update", editMhs);
+    }
+}
