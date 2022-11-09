@@ -1,15 +1,14 @@
 @page "/mhs"
-
-<PageTitle>Mahasiswa SI</PageTitle>
-
-@inject NavigationManager navigationManager
-@using Microsoft.AspNetCore.WebUtilities 
-
+@using System.Net.Http
+@using System.Net.Http.Json
 @inject HttpClient Http
+@inject NavigationManager UriHelper
 
-<h1>Mahasiswa SI</h1>
+<PageTitle>List Mahasiswa</PageTitle>
 
-<p>This component demonstrates fetching data from a service.</p>
+<h1>Mahasiswa SI UKDW</h1>
+
+<p>This component demonstrates fetching data Mahasiswa from the server.</p>
 
 @if (mhs == null)
 {
@@ -17,10 +16,7 @@
 }
 else
 {
-    <p style="margin:8px 0">  
-    <input Class="filled-text-box" @bind="FilterText" Placeholder="Search Text" />
-    <button @onclick="Search">Cari</button>
-</p> 
+    <NavLink class="btn btn-primary" href="/addmhs">Tambah</NavLink>
     <table class="table">
         <thead>
             <tr>
@@ -28,43 +24,48 @@ else
                 <th>NAMA</th>
                 <th>NIM</th>
                 <th>ALAMAT</th>
-                <th>Email</th>
-                <th>Foto</th>
+                <th>AKSI</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var mh in mhs)
             {
                 <tr>
-                <td>@mh.id </td>
-                <td>@mh.nama</td>
-                <td>@mh.nim</td>
-                <td>@mh.alamat</td>
-                <td>@mh.email</td>
-                <td>@mh.foto</td>
-                <td><button class="btn btn-warning"><a href="/updatemhs?id=@mh.id&nama=@mh.nama&nim=@mh.nim&alamat=@mh.alamat&email=@mh.email&foto=@mh.foto">Update</a></button></td>
-                <td><button class="btn btn-danger"><a href="/deletemhs?nim=@mh.nim">Delete</a></button></td>
+                    <td>@mh.id</td>
+                    <td>@mh.nama</td>
+                    <td>@mh.nim</td>
+                    <td>@mh.alamat</td>
+                    <td>
+                        <NavLink class="btn btn-primary" href='@("/updatemhs/72200371/"+mh.id+"/"+mh.nim)'>Ubah</NavLink>
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
-    <button class="btn btn-dark"><a href="/addmhs">Add</a></button>
-
-
 }
 
 @code {
     private Mahasiswa[]? mhs;
-    public string? FilterText;
 
     protected override async Task OnInitializedAsync()
     {
-            
         mhs = await Http.GetFromJsonAsync<Mahasiswa[]>("https://kpsi.fti.ukdw.ac.id/api/progmob/mhs/72200371");
-
     }
-    public async Task Search(){
-        var Text = FilterText;
-        mhs = await Http.GetFromJsonAsync<Mahasiswa[]>("https://kpsi.fti.ukdw.ac.id/api/progmob/mhs/72200371/72200371");
+
+    public class Mahasiswa
+    {
+        public int id { get; set; }
+
+        public string nama { get; set; }
+
+        public string nim { get; set; }
+
+        public string nim_progmob { get; set; }
+
+        public string alamat { get; set; }
+
+        public string email { get; set; }
+
+        public string foto { get; set; }
     }
 }

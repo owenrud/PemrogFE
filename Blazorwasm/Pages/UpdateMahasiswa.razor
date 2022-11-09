@@ -1,42 +1,124 @@
-@page "/updatemhs"
+@page "/updatemhs/{nim_progmob?}/{id?}/{nim?}"
 @using System.Net.Http
 @using System.Net.Http.Json
 @inject HttpClient Http
+@using System.ComponentModel.DataAnnotations;
 
-<input @bind="@ednama" />
-<input @bind="@ednim"  />
-<input @bind="@edalamat" />
-<input @bind="@edemail" />
-<input @bind="@edfoto" />
-<input @bind="@ednim_progmob" />
-<button @onclick="UpdateMhs">Update</button>
+<PageTitle>Ubah Mahasiswa</PageTitle>
+
+<h1>Ubah Mahasiswa SI UKDW</h1>
+
+<p>This component demonstrates fetching data Mahasiswa from the server.</p>
+
+@if (mhs == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <EditForm Model="@mhs" OnValidSubmit="@UpdateMhs">
+    <DataAnnotationsValidator />
+        <div class="form-group row">
+            <label for="nama" class="col-sm-2 col-form-label">
+                Nama
+            </label>
+            <div class="col-sm-10">
+                <InputText id="nama" class="form-control" placeholder="Nama"
+                        @bind-Value="mhs.nama" />
+                        <ValidationMessage For="() => mhs.nama" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="nim" class="col-sm-2 col-form-label">
+                Nim
+            </label>
+            <div class="col-sm-10">
+                <InputText id="nim" class="form-control" placeholder="NIM"
+                        @bind-Value="mhs.nim" />
+                        <ValidationMessage For="() => mhs.nim" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="alamat" class="col-sm-2 col-form-label">
+                Alamat
+            </label>
+            <div class="col-sm-10">
+                <InputTextArea id="alamat" class="form-control" placeholder="Alamat"
+                        @bind-Value="mhs.alamat" />
+                        <ValidationMessage For="() => mhs.alamat" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="email" class="col-sm-2 col-form-label">
+                Email
+            </label>
+            <div class="col-sm-10">
+                <InputText id="email" class="form-control" placeholder="Email"
+                        @bind-Value="mhs.email" />
+                        <ValidationMessage For="() => mhs.email" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="foto" class="col-sm-2 col-form-label">
+                Foto
+            </label>
+            <div class="col-sm-10">
+                <InputText id="foto" class="form-control" placeholder="Foto"
+                        @bind-Value="mhs.foto" />
+                        <ValidationMessage For="() => mhs.foto" />
+            </div>
+        </div>
+        <button type="submit" >Simpan</button>
+        <button type="submit" @onclick="DeleteMhs">Hapus</button>
+    </EditForm>
+}
 
 @code {
     [Parameter]
-[SupplyParameterFromQuery(Name = "id")]
-    public int id {get;set;}
+    public string nim_progmob { get; set; }
+    
     [Parameter]
-    [SupplyParameterFromQuery(Name = "nama")]
-    public string ednama {get;set;}
+    public string nim { get; set; }
+    
     [Parameter]
-    [SupplyParameterFromQuery(Name = "nim")]
-    public string ednim {get;set;}
-    [Parameter]
-    [SupplyParameterFromQuery(Name = "alamat")]
-    public string edalamat {get;set;}
-    [Parameter]
-    [SupplyParameterFromQuery(Name = "email")]
-    public string edemail {get;set;}
-    [Parameter]
-    [SupplyParameterFromQuery(Name = "foto")]
-    public string edfoto {get;set;}
+    public string id { get; set; }
+    private Mahasiswa mhs = new();
+    private Mahasiswa[]? lmhs;
 
-    public string? ednim_progmob;
- 
+    public async Task UpdateMhs(){
+        mhs.nim_progmob = "72200371";
+        await Http.PostAsJsonAsync("https://kpsi.fti.ukdw.ac.id/api/progmob/mhs/update", mhs);
+    }
+    public async Task DeleteMhs(){
+        mhs.nim_progmob = nim_progmob;
+        mhs.id = Int32.Parse(id);
+        await Http.PostAsJsonAsync("https://kpsi.fti.ukdw.ac.id/api/progmob/mhs/delete", mhs);
+    }
 
-    public async Task UpdateMhs()
+    protected override async Task OnInitializedAsync()
     {
-        var editItem = new DBUpdateMahasiswa {  Unama = ednama, Unim = ednim,Unim_cari=ednim, Ualamat = edalamat, Uemail = edemail, Ufoto = edfoto,Unim_progmob = ednim_progmob };
-        await Http.PutAsJsonAsync("https://kpsi.fti.ukdw.ac.id/api/progmob/mhs/update", editItem);
+        lmhs = await Http.GetFromJsonAsync<Mahasiswa[]>("https://kpsi.fti.ukdw.ac.id/api/progmob/mhs/"+nim_progmob+"/"+nim);
+        foreach(var mh in lmhs){
+            if(mh.id == Int32.Parse(id)){
+                mhs = mh;
+            }
+        }
+    }
+
+    public class Mahasiswa
+    {
+        public int? id { get; set; }
+    [Required]
+        public string nama { get; set; }
+    [Required]
+        public string nim { get; set; }
+    [Required]
+        public string alamat { get; set; }
+    [Required]
+        public string email { get; set; }
+    [Required]
+        public string foto { get; set; }
+
+        public string nim_progmob { get; set; }
     }
 }
