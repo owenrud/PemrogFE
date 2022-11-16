@@ -22,8 +22,28 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Pemrog Front End/Blazorwasm/lib/ComponentLibrary/ExtraStyles.razor]
+build_metadata.AdditionalFiles.TargetPath = bGliXENvbXBvbmVudExpYnJhcnlcRXh0cmFTdHlsZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Pemrog Front End/Blazorwasm/lib/ComponentLibrary/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = bGliXENvbXBvbmVudExpYnJhcnlcX0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Pemrog Front End/Blazorwasm/Pages/AddMahasiswa.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkTWFoYXNpc3dhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Pemrog Front End/Blazorwasm/Pages/ConsumeComponent1.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uc3VtZUNvbXBvbmVudDEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Pemrog Front End/Blazorwasm/Pages/ConsumeComponent2.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uc3VtZUNvbXBvbmVudDIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Pemrog Front End/Blazorwasm/Pages/ConsumeComponent3.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uc3VtZUNvbXBvbmVudDMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Pemrog Front End/Blazorwasm/Pages/Counter.razor]
@@ -61,6 +81,10 @@ build_metadata.AdditionalFiles.CssScope =
 [D:/Pemrog Front End/Blazorwasm/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Pemrog Front End/Blazorwasm/lib/ComponentLibrary/Component1.razor]
+build_metadata.AdditionalFiles.TargetPath = bGliXENvbXBvbmVudExpYnJhcnlcQ29tcG9uZW50MS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-nocelujnzd
 
 [D:/Pemrog Front End/Blazorwasm/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=

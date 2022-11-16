@@ -1,3 +1,17 @@
+/* /lib/ComponentLibrary/Component1.razor.rz.scp.css */
+
+.my-component[b-nocelujnzd] {
+    border: 2px dashed red;
+    padding: 1em;
+    margin: 1em 0;
+    background-image: url('background.png');
+}
+.extra-style[b-nocelujnzd] {
+    border: 2px dashed blue;
+    padding: 1em;
+    margin: 1em 0;
+    background-image: url('extra-background.png');
+}
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-365nep6h9c] {
     position: relative;

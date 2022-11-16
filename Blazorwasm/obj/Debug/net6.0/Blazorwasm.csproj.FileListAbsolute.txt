@@ -913,3 +913,15 @@ D:\Pemrog Front End\Blazorwasm\obj\Debug\net6.0\Blazorwasm.dll
 D:\Pemrog Front End\Blazorwasm\obj\Debug\net6.0\refint\Blazorwasm.dll
 D:\Pemrog Front End\Blazorwasm\obj\Debug\net6.0\Blazorwasm.pdb
 D:\Pemrog Front End\Blazorwasm\obj\Debug\net6.0\ref\Blazorwasm.dll
+D:\Pemrog Front End\Blazorwasm\bin\Debug\net6.0\wwwroot\_framework\ComponentLibrary.dll
+D:\Pemrog Front End\Blazorwasm\bin\Debug\net6.0\wwwroot\_framework\ComponentLibrary.pdb
+D:\Pemrog Front End\Blazorwasm\bin\Debug\net6.0\wwwroot\_framework\ComponentLibrary.dll.gz
+D:\Pemrog Front End\Blazorwasm\bin\Debug\net6.0\wwwroot\_framework\ComponentLibrary.pdb.gz
+D:\Pemrog Front End\Blazorwasm\bin\Debug\net6.0\ComponentLibrary.staticwebassets.runtime.json
+D:\Pemrog Front End\Blazorwasm\bin\Debug\net6.0\lib\ComponentLibrary\obj\ComponentLibrary.csproj.nuget.dgspec.json
+D:\Pemrog Front End\Blazorwasm\bin\Debug\net6.0\lib\ComponentLibrary\obj\project.assets.json
+D:\Pemrog Front End\Blazorwasm\bin\Debug\net6.0\ComponentLibrary.dll
+D:\Pemrog Front End\Blazorwasm\bin\Debug\net6.0\ComponentLibrary.pdb
+D:\Pemrog Front End\Blazorwasm\obj\Debug\net6.0\build-gz\iPYEI7Kl.gz
+D:\Pemrog Front End\Blazorwasm\obj\Debug\net6.0\build-gz\Rh1efi1X.gz
+D:\Pemrog Front End\Blazorwasm\obj\Debug\net6.0\scopedcss\lib\ComponentLibrary\Component1.razor.rz.scp.css
